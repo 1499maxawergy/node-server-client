@@ -34,3 +34,32 @@ export const addOne = async (email, password, role) => {
     const {data} = await $host.post('api/user/registration', {email, password, role});
     return data;
 }
+
+export const getAllLots = async () => {
+    const lots = await $authHost.get('/api/lot/get', );
+    return lots;
+}
+
+export const addLotOne = async (name, description, image, startTime, endTime, startPrice, step) => {
+    const {data} = await $authHost.post('/api/lot/create', {name, description, image, startTime, endTime, startPrice, step});
+    return data;
+}
+
+export const deleteLotOne = async (lotId) => {
+    return await $authHost.post('/api/lot/delete', {lotId: lotId});
+}
+
+export const updateLotOne = async (lotId, name, description, image, startTime, endTime, startPrice, step) => {
+    const {data} = await $authHost.post('/api/lot/update', {lotId, name, description, image, startTime, endTime, startPrice, step});
+    return data;
+}
+
+export const doBetLot = async (lotId, step, userId) => {
+    const {data} = await $authHost.post('/api/lot/bet', {id: lotId, step, userId});
+    return data;
+}
+
+export const getWinLot = async (userId) => {
+    const data = await $authHost.post('/api/lot/win', {userId});
+    return data;
+}

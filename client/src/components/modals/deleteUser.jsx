@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {deleteOne, updateOne} from "../../http/userAPI";
+import {deleteOne} from "../../http/userAPI";
 import {Button, Dropdown, Form, Modal} from "react-bootstrap";
 import DropdownToggle from "react-bootstrap/DropdownToggle";
 import DropdownMenu from "react-bootstrap/DropdownMenu";

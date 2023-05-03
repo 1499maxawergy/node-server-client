@@ -1,6 +1,6 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import {Button, Dropdown, Form, Modal} from "react-bootstrap";
-import {addOne, check} from "../../http/userAPI";
+import {addOne} from "../../http/userAPI";
 import DropdownToggle from "react-bootstrap/DropdownToggle";
 import DropdownMenu from "react-bootstrap/DropdownMenu";
 import DropdownItem from "react-bootstrap/DropdownItem";

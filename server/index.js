@@ -7,6 +7,8 @@ const app = express();
 const cors = require('cors');
 const router = require('./routes/index');
 const errorHandler = require('./middleware/ErrorHandlingMiddleware')
+const cron = require("node-cron");
+const lotRouter = require('./controllers/lotController');
 
 
 app.use(cors())
@@ -22,7 +24,10 @@ const start = async () => {
     try{
         await sequelize.authenticate();
         await sequelize.sync();
-        app.listen(PORT, () => console.log('Server started successfully'));
+        await cron.schedule('*/1 * * * *', function () {
+            lotRouter.checkForLots();
+        })
+        app.listen(PORT, () => console.log('Server started successfully on port: ' + PORT));
     } catch (e){
         console.log(e);
     }

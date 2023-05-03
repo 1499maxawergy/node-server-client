@@ -1,9 +1,15 @@
 import React from 'react';
+import mainImg from '../static/main-photo.jpg';
 
 const Greet = () => {
     return (
-        <div className='container-fluid p-5 main-article'>
-            User identity management is the process of ensuring that users are authenticated and authorized to access a system. Usernames and passwords can often be used for user authentication, but this is not recommended for security reasons. Secure user-based access management (UBA) is an alternative, from which many systems can benefit.
+        <div className='container-fluid p-5 main-article d-md-flex justify-content-between'>
+            <div className='align-self-center'>
+                Добро пожаловать на наш уникальный веб-аукцион – место, где вы можете купить абсолютно все, что вам захочется! На нашем сайте вы найдете тысячи лотов различной категории: от редких коллекционных предметов до бытовой техники и повседневных товаров.
+            </div>
+            <div>
+                <img className='img-fluid mt-4' src={mainImg} alt={'MainPhoto'}/>
+            </div>
         </div>
     );
 };

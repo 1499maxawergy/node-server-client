@@ -16,11 +16,11 @@ class UserController{
     async registration(req, res, next){
         const {email, password, role} = req.body;
         if (!email || !password) {
-            return next(ApiError.badRequest('Incorrect data'))
+            return next(ApiError.badRequest('Некорректные данные для регистрации'))
         }
         const candidate = await User.findOne({where: {email}});
         if (candidate){
-            return next(ApiError.badRequest('There is User with this email address already'))
+            return next(ApiError.badRequest('Пользователь с данным email-адресом уже зарегистрирован'))
         }
         const hashPassword = await bcrypt.hash(password, 5);
         const user = await User.create({email, role, password: hashPassword});
@@ -32,11 +32,11 @@ class UserController{
         const {email, password} = req.body;
         const user = await User.findOne({where: {email}});
         if (!user){
-            return next(ApiError.badRequest('There is no User with this credentials'));
+            return next(ApiError.badRequest('Неверные данные для входа. Проверьте правильность введенных данных'));
         }
         let comparePassword = bcrypt.compareSync(password, user.password)
         if (!comparePassword){
-            return next(ApiError.badRequest('Incorrect password'));
+            return next(ApiError.badRequest('Неверный пароль '));
         }
         const token = generateJWT(user.id, user.email, user.role);
         return res.json({token});
@@ -56,23 +56,23 @@ class UserController{
         const {id} = req.body;
         const deleted = await User.destroy({where: {id}});
         if (deleted === 0){
-            return next(ApiError.badRequest('There is no User with this ID'));
+            return next(ApiError.badRequest('Пользователь с данным ID не найден'));
         }
-        return res.json({message: 'Successfully deleted'});
+        return res.json({message: 'Успешно удалено'});
     }
 
     async patch(req, res, next) {
         const {id, email, role, password} = req.body;
         const user = await User.findOne({where: {id}});
         if (!user) {
-            return next(ApiError.badRequest('There is no User with this ID'));
+            return next(ApiError.badRequest('Пользователь с данным ID не найден'));
         }
         const hashPassword = await bcrypt.hash(password, 5);
         user.email = email;
         user.password = hashPassword;
         user.role = role;
         await user.save();
-        return res.json({message: 'Successfully updated'});
+        return res.json({message: 'Успешно обновлено'});
     }
 }
 

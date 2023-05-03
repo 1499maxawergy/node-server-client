@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {check, getAll} from "../http/userAPI";
-import {Container, Spinner} from "react-bootstrap";
+import {getAll} from "../http/userAPI";
+import {Spinner} from "react-bootstrap";
 import CreateUser from "../components/modals/createUser";
 import DeleteUser from "../components/modals/deleteUser";
 import UpdateUser from "../components/modals/updateUser";
@@ -41,7 +41,7 @@ const Admin = observer(() => {
 
     return (
         <div className='container-fluid'>
-            <h3 className='text-decoration-underline text-center'>Admin panel</h3>
+            <h3 className='text-decoration-underline text-center'>Пользователи</h3>
             <div className='d-flex flex-column'>
                 <div className='table-responsive-xl'>
                     <table className='table table-dark'>
