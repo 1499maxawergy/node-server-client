@@ -78,7 +78,7 @@ const Lots = observer(() => {
                                     <h6 className='card-title'>Цена шага: {data.step}</h6>
                                     {data.isGoing &&
                                         <div>
-                                            <p className="card-text text-success">Торги начались. <br/>До конца
+                                            <p className="card-text text-success">Торги начались <br/>До конца
                                                 торгов: {dayjs().to(data.endTime, true)}</p>
                                         </div>
                                     }

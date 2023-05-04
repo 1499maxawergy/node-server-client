@@ -13,7 +13,7 @@ root.render(
         user: new UserStore()
     }}>
         <React.StrictMode>
-            <App />
+            <App/>
         </React.StrictMode>
     </Context.Provider>
 );

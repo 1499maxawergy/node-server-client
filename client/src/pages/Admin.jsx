@@ -68,7 +68,7 @@ const Admin = observer(() => {
                     </table>
                 </div>
 
-                <div className="btn-group mt-4 mb-4" role="group" aria-label="Basic example">
+                <div className="btn-group mt-3 mb-5 mb-4" role="group" aria-label="Basic example">
                     <button onClick={() => setCreateVisible(true)} type="button" className="border-danger border-2 btn btn-dark">Create</button>
                     <button onClick={() => setDeleteVisible(true)} type="button" className="border-danger border-2 btn btn-dark">Delete</button>
                     <button onClick={() => setUpdateVisible(true)} type="button" className="border-danger border-2 btn btn-dark">Update</button>
