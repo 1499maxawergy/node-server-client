@@ -9,6 +9,7 @@ import React, {useContext, useEffect, useState} from "react";
 import {Context} from "./index";
 import {check} from "./http/userAPI";
 import {Spinner} from "react-bootstrap";
+import Footer from "./components/Footer";
 
 const App = observer(() => {
     const {user} = useContext(Context);
@@ -34,6 +35,7 @@ const App = observer(() => {
     <BrowserRouter>
         <NavBar/>
         <AppRouter/>
+        <Footer/>
     </BrowserRouter>
   );
 });
