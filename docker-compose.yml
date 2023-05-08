@@ -1,7 +1,7 @@
 version: '3'
 services:
   server:
-    container_name: server
+    container_name: server-milko
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -12,7 +12,7 @@ services:
     depends_on:
       - db
   client:
-    container_name: client
+    container_name: client-milko
     build:
       context: ./client
       dockerfile: Dockerfile
@@ -23,7 +23,7 @@ services:
     depends_on:
       - server
   db:
-    container_name: postgres
+    container_name: postgres-milko
     image: postgres
     restart: always
     ports:
