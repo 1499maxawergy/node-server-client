@@ -16,3 +16,7 @@ code {
   position: fixed;
   bottom: 0;
 }
+
+body > iframe{
+  display: none;
+}
